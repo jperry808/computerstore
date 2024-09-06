@@ -1,0 +1,28 @@
+/**
+  * A custom exception for Computer objects
+  * It will be thrown if there is an attempt to
+  * create an invalid custom object
+  */
+  
+public class ComputerException extends Exception {
+
+   /** The message that outputs when the exception happens */
+   private String message = "";
+   
+   /**
+   * Constructs an exception object.
+   */
+   public ComputerException() {
+      // Actions when the exception happens
+   }
+   
+    /** Accessor method */
+   public String getMessage() {
+      return this.message;
+   }
+   
+   /** Mutator method */
+   public void setMessage(String newMessage) {
+      this.message = newMessage;
+   }
+}
