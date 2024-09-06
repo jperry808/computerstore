@@ -1,0 +1,178 @@
+/**
+  * A class for modeling a Computer in the real world
+  * The characteristics used are
+  *   1) Barcode: integer that ranges between 10001 - 99999
+  *   2) OS: integer that ranges between 1 - 3 (1. Windows, 2. MacOS, 3. Linux)
+  *   3) Price: double that ranges between $50.00 - $25,000.00
+  *   4) Model: string that must be at least 2 non blank characters long
+  *
+  * @author Perry, Jett
+  */
+
+public class Computer {
+   
+   // Instance variables
+   private int barcode = 0; // 10001 - 99999
+   private int os = 0; // 1-3
+   private double price = 0.0; // $50.00 = $25,000.00
+   private String model = ""; // must be 2 non-blank characters
+   
+   /**
+    * Constructs a Computer object
+    *
+    * @barcode      barcode      The computers barcode
+    * @os           os           The computers operating system
+    * @price        price        The price of the computer
+    * @model        model        The model of the computer
+    */  
+   public Computer(int barcode, int os, double price, String model) throws ComputerException { 
+      // calls on setBarcode method created below
+      this.setBarcode(barcode);
+      // calls on setOs method created below
+      this.setOs(os);
+      // calls on setPrice method created below
+      this.setPrice(price);
+      // calls on setModel method created below
+      this.setModel(model);
+   }
+   
+   /** accessor methods */
+   public int getBarcode() {
+      return this.barcode;
+   }
+   
+   public int getOs() {
+      return this.os;
+   }
+   
+   public double getPrice() {
+      return this.price;
+   }
+   
+   public String getModel() {
+      return this.model;
+   }
+   
+   /** mutator methods */
+   /**
+    *  Mutator method to set a new barcode
+    *  newBarcode must be inbetween 10001 - 99999
+    *
+    *  @param        newBarcode           The new barcode
+    *  @exception    ComputerException    If the new barcode is not inbetween 10001 - 99999
+    */
+   
+   public void setBarcode(int newBarcode) throws ComputerException {
+      if (newBarcode >= 10001 && newBarcode <= 99999) {
+         this.barcode = newBarcode;
+      }
+      else {
+         // 1. Create ComputerException
+         ComputerException ce = new ComputerException();
+         // 2. Set the error message
+         ce.setMessage("Error: " + newBarcode + " is not in between 10001 - 99999\n");
+         // 3. Throw the ComputerException
+         throw ce;  
+      }
+   }
+   
+    /**
+    *  Mutator method to set a new os value
+    *  newOs must be between 1 - 3
+    *
+    *  @param        newOs                The new os
+    *  @exception    ComputerException    If the new os is not 1 - 3
+    */
+    
+   public void setOs(int newOs) throws ComputerException {
+      if (newOs >= 1 && newOs <= 3) {
+         this.os = newOs;
+      }
+      else {
+         // 1. Create ComputerException
+         ComputerException ce = new ComputerException();
+         // 2. Set the error message
+         ce.setMessage("Error: " + newOs + " is not in between 1 - 3\n");
+         // 3. Throw the ComputerException
+         throw ce;  
+      }
+   }
+   
+   /**
+    *  Mutator method to set a new price value
+    *  newPrice must be between $50.00 - $25,000.00
+    *
+    *  @param        newPrice             The new price
+    *  @exception    StudentException     If the price is not between $50.00 - $25,000.00
+    */
+    
+   public void setPrice(double newPrice) throws ComputerException {
+      if (newPrice >= 50.00 && newPrice <= 25000.00) {
+         this.price = newPrice;
+      }
+      else {
+         // 1. Create ComputerException
+         ComputerException ce = new ComputerException();
+         // 2. Set the error message
+         ce.setMessage("Error: " + newPrice + " is not in between $50.00 - $25,000.00\n");
+         // 3. Throw the ComputerException
+         throw ce;  
+      }
+   }
+   
+   /**
+    *  Mutator method to set a new model value
+    *  newModel must be at least 2 non empty characters long
+    *
+    *  @param        newModel             The new model
+    *  @exception    ComputerException    If the model is not at least 2 non empty characters long
+    */
+    
+   public void setModel(String newModel) throws ComputerException {
+      if (newModel.trim( ).length() >= 2) {
+         if (newModel.isEmpty() == false) {
+            this.model = newModel;
+         }
+      }
+      else {
+         // 1. Create ComputerException
+         ComputerException ce = new ComputerException();
+         // 2. Set the error message
+         ce.setMessage("Error: " + newModel + " is not 2 non empty characters long\n");
+         // 3. Throw the ComputerException
+         throw ce;  
+      }
+   }
+   
+   /**
+    * Returns a printable string of the variables
+    * ex. (10001, 1, 100.00, "Dell");
+    *    Barcode: 10001
+    *    OS: Windows
+    *    Price: $100.00
+    *    Model: Dell
+    *
+    * @return  output   printable string of instance variables
+    */
+    
+   public String toString() {
+   
+      String output = "";
+      
+      output += "Barcode: " + this.barcode;
+      if (this.os == 1) {
+         output += "\nOS: Windows";
+      }
+      if (this.os == 2) {
+         output += "\nOS: MacOS";
+      }
+      if (this.os == 3) {
+         output += "\nOS: Linux";
+      }
+      output += "\nPrice: $" + this.price + "0";
+      output += "\nModel: " + this.model + "\n";
+      
+      return output;
+      
+   }
+}
