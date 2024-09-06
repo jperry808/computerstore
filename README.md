@@ -13,3 +13,5 @@ Some of the input validation included:
 - Must delete computer objects by the barcode
 
 It was challenging at first but this project taught me a lot about how to check if your code is foolproof and to make sure nobody can mess up your code no matter how hard they try.
+
+Video Demo: https://youtu.be/3tyZNfhP28Q
